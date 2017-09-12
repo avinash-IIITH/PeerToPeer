@@ -13,7 +13,7 @@ int main(){
 	
 	char ch = 'A';
 	char *ip;
-	ip = strdup("127.0.0.1");
+	ip = strdup("10.1.134.72");
 	int serverConnectResponse;
 
 	serverConnectResponse = connectServerSocket(9734,ip); //Initiate connnection to Server Socket

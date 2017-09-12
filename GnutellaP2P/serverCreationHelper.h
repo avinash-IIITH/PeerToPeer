@@ -6,6 +6,14 @@
 #include <signal.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
+#include <arpa/inet.h>
+#include <iostream>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <map>
+#include <fstream>
 /* End -includes*/
 
 
@@ -18,10 +26,11 @@ struct sockaddr_in clientAddress;
 
 
 /*This function creates a server socket*/
-void createServerSocket(unsigned int portNumber){
+void createServerSocket(char * ip,unsigned int portNumber){
 	serverSocketFD = socket(AF_INET, SOCK_STREAM,0); //ToDo-Exception Handling
 	serverAddress.sin_family = AF_INET;
-	serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+	//serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+	serverAddress.sin_addr.s_addr = inet_addr(ip);
 	serverAddress.sin_port = htons(portNumber);
 	serverLength = sizeof(serverAddress);
 	bind(serverSocketFD,(struct sockaddr *)&serverAddress,serverLength); //ToDo-Exception Handling
