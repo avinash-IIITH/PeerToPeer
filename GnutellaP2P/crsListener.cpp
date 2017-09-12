@@ -14,6 +14,7 @@ char * repositoryFile;
 char * mirrorList;
 char * rootFolder;
 map<string,vector<string> > repositoryFileDS;
+unordered_map<string,string > mirrorListDS;
 /*End- Global variables*/
 
 /*This function handles individual client requests*/
@@ -26,7 +27,7 @@ void handleClientRequest(){
 }
 
 /*This function pushes data in repositoryFileDS map*/
-void pushrepositoryFileDS(string lineString){
+void pushRepositoryFileDS(string lineString){
 	string key,value;
 	size_t found;
 	map<string,vector<string> >::iterator iter;
@@ -60,10 +61,52 @@ void populateRepositoryFileDS(){
 
 	infile.open (repositoryFile);
     if(getline(infile,lineString)){
-    	pushrepositoryFileDS(lineString);
+    	pushRepositoryFileDS(lineString);
 	    while ( infile ){
 	        getline(infile,lineString);
-	        pushrepositoryFileDS(lineString);
+	        pushRepositoryFileDS(lineString);
+	    }
+	}
+	infile.close();  
+} 
+
+
+/*This function pushes data in mirrorListDS map*/
+void pushMirrorListDS(string lineString){
+	string key,value;
+	size_t found;
+	unordered_map<string,string>::iterator iter;
+	found=lineString.find(":");
+	key=lineString.substr(0,found);
+	value=lineString.substr(found+1);
+	if(mirrorListDS.empty()){		
+	    mirrorListDS[key]=value;
+	    cout << mirrorListDS[key] << " ";	    
+	}else{
+		iter=mirrorListDS.find(key);
+		if(iter != mirrorListDS.end()){			
+			iter->second = value;
+			cout << " hi " << mirrorListDS[key];	    
+		}else{		    
+		    mirrorListDS[key]=value;
+		    cout << mirrorListDS[key];	    		    
+		}
+	}
+}
+
+
+/*This function reads Mirror List file content and populates mirrorListDS*/
+void populateMirrorListDS(){
+	string lineString;
+	ifstream infile;
+	size_t found;
+
+	infile.open (mirrorList);
+    if(getline(infile,lineString)){
+    	pushMirrorListDS(lineString);
+	    while ( infile ){
+	        getline(infile,lineString);
+	        pushMirrorListDS(lineString);
 	    }
 	}
 	infile.close();  
@@ -91,6 +134,7 @@ int main(int argc, char* argv[]){
 
 	populateServerParam(argc, argv); //populate server parameter
 	populateRepositoryFileDS(); //populate Repository File DS
+	populateMirrorListDS(); //populate Repository File DS
 
 	createServerSocket(serverIP,serverPortNum); //Create Server socket and bind it to port num: 9734
 	suppressSIGCHILD(); //preventing the transformation of children into zombies
