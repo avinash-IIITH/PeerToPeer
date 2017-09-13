@@ -6,8 +6,6 @@ using namespace std;
 
 /*Begin- Global variables*/
 int clientSocketFileDesc;
-char ch;
-char cha='A';
 char *serverIP;
 unsigned int serverPortNum;
 char * repositoryFile;
@@ -17,14 +15,215 @@ map<string,vector<string> > repositoryFileDS;
 unordered_map<string,string > mirrorListDS;
 /*End- Global variables*/
 
+
+
+/*Begin- Function Declaration*/
+void pushRepositoryFileDS(string lineString);
+void pushMirrorListDS(string lineString);
+/*End- Function Declaration*/
+
+
+
+/*This function a String based on Delimiters*/
+vector<string> splitMessage(string clientMessage){
+	vector<string> requestParam;
+	size_t found;
+	string key;
+	while(1){
+		found=clientMessage.find("#@#");
+		if (found != string::npos){
+			key=clientMessage.substr(0,found);
+			requestParam.push_back(key);
+			clientMessage=clientMessage.substr(found+3);
+		}else{
+			requestParam.push_back(clientMessage);
+			break;
+		}		
+	}
+
+	return requestParam;
+}
+
+
+/*This function searches for file in File repository*/
+string performSearch(vector<string> requestParam){
+
+	if(requestParam.size() < 2){
+		return "INVALID_REQUEST";
+	}
+	string searchParam,fileName;
+	map<string,vector<string> >::iterator iterRepoDS;
+	unordered_map<string,string >::iterator iterMirrorListDS;
+	vector<string> repoFileDSVector;
+	string searchResponse, temp, alias, value;
+	size_t found;
+	int flag =0;
+
+	searchParam = requestParam.at(1);
+	transform(searchParam.begin(), searchParam.end(), searchParam.begin(), ::tolower);
+	
+	if(repositoryFileDS.empty()){
+		
+		return "FILE_NOT_FOUND";
+	}else{
+		iterRepoDS=repositoryFileDS.find(searchParam);
+		
+		if(iterRepoDS != repositoryFileDS.end()){  		
+						
+			repoFileDSVector = iterRepoDS->second;
+			for (vector<string>::iterator it = repoFileDSVector.begin() ; it != repoFileDSVector.end(); ++it){
+				
+    			temp = *it;
+    			found = temp.find_last_of(':'); // to find alias
+    			alias = temp.substr(found+1); // to find alias
+    			
+    			iterMirrorListDS=mirrorListDS.find(alias); //to find alias in mirrorListDS
+    			
+    			if(iterMirrorListDS != mirrorListDS.end()){  //if found
+    				
+					found=temp.find(":"); //end of filename
+					value=temp.substr(found+1); //from filepath till alias
+
+					if(!searchResponse.empty()){
+						searchResponse = searchResponse+"||";
+						flag =1;
+					}
+
+					if(searchResponse.empty()){
+						searchResponse=temp.substr(0,found); // put filename in output string
+						fileName =  searchResponse; // hold filename for empty comparison
+					}				
+					
+					if(flag ==1){
+						searchResponse = searchResponse+value;
+					}else{
+						searchResponse = searchResponse+"#@#"+value;
+					}
+					
+					found = searchResponse.find_last_of(':');
+    				searchResponse = searchResponse.substr(0,found)+"#@#"+alias+"#@#"; 
+					value = iterMirrorListDS->second;
+					found = value.find(':');
+    				searchResponse = searchResponse+value.substr(0,found)+"#@#";
+    				value = value.substr(found+1);
+    				found = value.find(':');
+    				searchResponse = searchResponse+value.substr(0,found)+"#@#"+value.substr(found+1);
+				}
+			}
+
+			if(searchResponse == fileName || searchResponse.empty()){
+				 return "FILE_NOT_FOUND";	
+			}else{
+				return searchResponse;	
+			}							
+		}else{  
+			 			
+		    return "FILE_NOT_FOUND";		    
+		}
+	}
+}
+
+
+/*This function searches for file in File repository*/
+string performShare(vector<string> requestParam){
+	string lineStringRepoDS, lineStringMirrorList;
+
+	if(requestParam.size() < 7){
+		return "INVALID_REQUEST";
+	}
+
+	lineStringRepoDS = requestParam.at(1)+":";
+	lineStringRepoDS = lineStringRepoDS + requestParam.at(2) +":" + requestParam.at(3);
+	pushRepositoryFileDS(lineStringRepoDS);	
+
+	lineStringMirrorList = requestParam.at(3)+":";
+	lineStringMirrorList = lineStringMirrorList + requestParam.at(4) +":"+ requestParam.at(5) +":"+ requestParam.at(6);
+	pushMirrorListDS(lineStringMirrorList);
+	return "SUCCESS";
+}
+
+
+/*This function searches for file in File repository*/
+string performDelete(vector<string> requestParam){
+	string searchParam, compareValue;
+	map<string,vector<string> >::iterator iterRepoDS;
+	unordered_map<string,string >::iterator iterMirrorListDS;
+	vector<string> repoFileDSVector;
+	string temp;
+
+	if(requestParam.size() < 4){
+		return "INVALID_REQUEST";
+	}
+
+	searchParam = requestParam.at(1);
+	transform(searchParam.begin(), searchParam.end(), searchParam.begin(), ::tolower);
+
+	compareValue = requestParam.at(1) + requestParam.at(2) + requestParam.at(3);
+
+	if(!repositoryFileDS.empty()){
+		iterRepoDS=repositoryFileDS.find(searchParam);
+		if(iterRepoDS != repositoryFileDS.end()){    			
+			repoFileDSVector = iterRepoDS->second;
+			for (vector<string>::iterator it = repoFileDSVector.begin() ; it != repoFileDSVector.end(); ++it){
+    			temp = *it;
+    			if(temp == compareValue){
+    				repoFileDSVector.erase (it);
+    				break;
+    			}
+    		}
+    	}
+    }
+    return "SUCCESS";
+}
+
+
 /*This function handles individual client requests*/
 void handleClientRequest(){
 	//read(clientSocketFileDesc, &ch, 1);
 	//sleep(5);ch++;write(clientSocketFileDesc, &cha, 1);
 	//close(clientSocketFileDesc);
 
+	int readSize;
+	char clientMessageArray[2000];
+	string clientMessage;
+	vector<string> requestParam;
+	string response;
+	memset(clientMessageArray, '\0', 2000);
+	readSize = recv(clientSocketFileDesc , clientMessageArray , 2000 , 0);   	
+    if(readSize == 0){
+        printf("Client disconnected");
+        fflush(stdout);
+    }else if(readSize == -1){
+        perror("recv failed");
+    }else{
+    	clientMessage = string(clientMessageArray);
+    	cout << "Input request: " << clientMessage << endl;
+    }
+
+    requestParam = splitMessage(clientMessage);
+    if(requestParam.at(0) == "search"){
+    	response = performSearch(requestParam);
+    }else if(requestParam.at(0) == "share"){
+    	response = performShare(requestParam);
+    }else if(requestParam.at(0) == "del"){
+    	response = performDelete(requestParam);
+    }else{
+    	cout << "Invalid request";
+    	response = "INVALID_REQUEST";
+    }
+
+    char * cstr = new char [response.length()+1];
+    strcpy (cstr, response.c_str());
+    cout << "Response: " << cstr << endl;
+    if( send(clientSocketFileDesc , cstr , strlen(cstr) , 0) < 0){
+        perror("send failed");
+        exit (1);
+    }
+
+    close(clientSocketFileDesc);
 	exit(0);	
 }
+
 
 /*This function pushes data in repositoryFileDS map*/
 void pushRepositoryFileDS(string lineString){
@@ -32,9 +231,12 @@ void pushRepositoryFileDS(string lineString){
 	size_t found;
 	map<string,vector<string> >::iterator iter;
 	vector<string> repoFileDSVector;
+
 	found=lineString.find(":");
 	key=lineString.substr(0,found);
-	value=lineString.substr(found+1);
+	transform(key.begin(), key.end(), key.begin(), ::tolower);
+	value=lineString;
+
 	if(repositoryFileDS.empty()){
 		repoFileDSVector.push_back(value);
 	    repositoryFileDS[key]=repoFileDSVector;
@@ -52,6 +254,7 @@ void pushRepositoryFileDS(string lineString){
 
 	}
 }
+
 
 /*This function reads RepositoryFile content and populates repositoryFileDS*/
 void populateRepositoryFileDS(){
@@ -76,20 +279,18 @@ void pushMirrorListDS(string lineString){
 	string key,value;
 	size_t found;
 	unordered_map<string,string>::iterator iter;
+
 	found=lineString.find(":");
-	key=lineString.substr(0,found);
+	key=lineString.substr(0,found);	
 	value=lineString.substr(found+1);
 	if(mirrorListDS.empty()){		
-	    mirrorListDS[key]=value;
-	    cout << mirrorListDS[key] << " ";	    
+	    mirrorListDS[key]=value;	        
 	}else{
 		iter=mirrorListDS.find(key);
 		if(iter != mirrorListDS.end()){			
-			iter->second = value;
-			cout << " hi " << mirrorListDS[key];	    
+			iter->second = value;			    
 		}else{		    
-		    mirrorListDS[key]=value;
-		    cout << mirrorListDS[key];	    		    
+		    mirrorListDS[key]=value;		        		    
 		}
 	}
 }
@@ -141,8 +342,7 @@ int main(int argc, char* argv[]){
 
 	while(1){
 		
-		printf("server waiting\n");
-		cha++;	
+		printf("server waiting\n");	
 
 		clientSocketFileDesc= acceptClientConnection(); //Accept the connection
 
