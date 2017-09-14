@@ -1,5 +1,7 @@
 /* Begin -includes*/
 #include "clientRequestHelper.h"
+#include <pthread.h>
+#include "serverCreationHelper.h"
 /* End -includes*/
 
 using namespace std;
@@ -14,6 +16,9 @@ unsigned int nodeDownloadPortNum;
 char * repositoryFile;
 char * mirrorList;
 char * rootFolder;
+map<int, string> fileMirrors;
+int threadCount;
+pthread_t getFileThread[10000];
 /*End- Global variables*/
 
 
@@ -30,8 +35,19 @@ void populateClientParam(int argc, char* argv[]){
 		serverIPAddress = argv[4];
 		serverPortNum = (unsigned int)strtol(argv[5],NULL,10);
 		nodeDownloadPortNum = (unsigned int)strtol(argv[6],NULL,10);
-		rootFolder = argv[7];		
+		rootFolder = argv[7];	
+		threadCount =0;	
 	}
+}
+
+/*This function will download the file from another client*/
+
+void* getFileFromMirror(void *cstr){
+	string parsedMessage = string((char*)cstr);
+	cout << parsedMessage << endl;
+	
+	threadCount--;
+	pthread_exit(NULL);
 }
 
 
@@ -49,10 +65,29 @@ string updateCommandString(string parsedString){
 	    }else if(key == "share" || key == "del"){
 	    	temp= parsedString.substr(found+3);
 	    	found = temp.find_last_of('/');
-	    	fileName = temp.substr(found+1);
+	    	if(found == string::npos){
+	    		fileName=temp;
+	    	}else{
+	    		fileName = temp.substr(found+1);
+	    	}
+	    	
 	    	commandString = key+"#@#"+fileName+"#@#"+temp+"#@#"+string(nodeAlias)+"#@#";
 	    	commandString = commandString + string(nodeIPAddress)+"#@#"+to_string(nodePortNum)+"#@#"+to_string(nodeDownloadPortNum);
 	    	return commandString;
+	    }else if(key == "get"){
+	    	string temp;
+	    	parsedString =parsedString.substr(found+3);
+	    	found=parsedString.find("[");
+	    	if(found == string::npos){
+	    		//To Do get command to CRS
+	    	}else{
+	    		char * cstr = new char [parsedString.length()+1];
+    			strcpy (cstr, parsedString.c_str());
+	    		if(pthread_create(&getFileThread[threadCount++], NULL, getFileFromMirror, (void*)cstr) != 0) {
+					fprintf(stderr, "Error creating thread\n");					
+				}
+				return "continue";
+	    	}
 	    }else{
 	    	cout << "Invalid Request";
 	    	return "Invalid Request";
@@ -92,6 +127,70 @@ string parseInputCommand(string inputCommand){
 }
 
 
+/*This function handles search response from server*/
+void handleSearchResponse(string serverReponse, string parsedInputString){
+	vector<string> requestParam;
+	size_t found;
+	string key;
+	int responseCount=1;
+
+	fileMirrors.clear();
+	while(1){
+		found=serverReponse.find("||");
+		if (found != string::npos){
+			key=serverReponse.substr(0,found);
+			fileMirrors[responseCount]=key;
+			serverReponse=serverReponse.substr(found+2);
+		}else{
+			fileMirrors[responseCount]=serverReponse;
+			break;
+		}
+		responseCount++;		
+	}
+	cout << "FOUND:" <<fileMirrors.size() <<endl ;
+
+	for (map<int, string>::iterator it = fileMirrors.begin() ; it != fileMirrors.end(); ++it){
+		string mirrorDetail = it->second;
+		string replacedString;
+		while(1){
+			found=mirrorDetail.find("#@#");
+			if (found != string::npos){				
+				replacedString= replacedString + mirrorDetail.substr(0,found)+":";						
+				mirrorDetail=mirrorDetail.substr(found+3);
+			}else{
+				replacedString= replacedString + mirrorDetail;
+				break;
+			}
+		}
+		if(it->first == 1){
+			found=replacedString.find(":");
+			replacedString=replacedString.substr(found+1);
+		}
+		cout << "[" << it->first << "] " << replacedString << endl;
+	}
+}
+
+
+/*This function handles response from server*/
+void handleServerResponse(string serverReponse, string parsedInputString){
+	size_t found;
+	string key;
+
+	if(serverReponse == "INVALID_REQUEST" ||serverReponse == "FILE_NOT_FOUND" ||serverReponse == "SUCCESS"){
+		cout << serverReponse << endl;
+		return;
+	}
+
+	found=parsedInputString.find("#@#");
+	if (found != string::npos){
+		key=parsedInputString.substr(0,found);
+		if(key == "search"){
+			handleSearchResponse(serverReponse, parsedInputString);
+		}
+	}
+}
+
+
 /*This function is the entry point for client processes*/
 int main(int argc, char* argv[]){
 
@@ -99,8 +198,8 @@ int main(int argc, char* argv[]){
 	string inputCommand;
 	string parsedInputString;
 	int readSize;
-	char clientMessageArray[2000];
-	string clientMessage;
+	char serverReponseArray[2000];
+	string serverReponse;
 	
 	populateClientParam(argc, argv); //populate server parameter
 	
@@ -108,8 +207,9 @@ int main(int argc, char* argv[]){
 		cout << "Please enter command for CRS" << endl;
 		getline(cin, inputCommand);
 
-		parsedInputString = parseInputCommand(inputCommand);	
-		if(parsedInputString == "Invalid Request"){
+		parsedInputString = parseInputCommand(inputCommand);
+
+		if(parsedInputString == "Invalid Request" || parsedInputString == "continue"){
 			continue;
 		}
 
@@ -126,8 +226,8 @@ int main(int argc, char* argv[]){
 			perror("oops: server down. Try again after some time");
 		}
 		/*End- connection to server failed*/
-		memset(clientMessageArray, '\0', 2000);
-		readSize = recv(clientSocketFD , clientMessageArray , 2000 , 0);   
+		memset(serverReponseArray, '\0', 2000);
+		readSize = recv(clientSocketFD , serverReponseArray , 2000 , 0);   
 
 	    if(readSize == 0){
 	        printf("server disconnected");
@@ -135,9 +235,8 @@ int main(int argc, char* argv[]){
 	    }else if(readSize == -1){
 	        perror("recv failed");
 	    }else{
-	    	clientMessage = string(clientMessageArray);
-	    	//handleServerResponse(clientMessageArray);
-	    	cout << "Response: " << clientMessage << endl;
+	    	serverReponse = string(serverReponseArray);
+	    	handleServerResponse(serverReponse,parsedInputString);
 	    }
 
 		close(clientSocketFD);

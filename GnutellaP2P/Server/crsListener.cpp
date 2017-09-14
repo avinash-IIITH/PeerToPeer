@@ -1,4 +1,5 @@
 /* Begin -includes*/
+#include <pthread.h>
 #include "serverCreationHelper.h"
 /* End -includes*/
 
@@ -13,6 +14,8 @@ char * mirrorList;
 char * rootFolder;
 map<string,vector<string> > repositoryFileDS;
 unordered_map<string,string > mirrorListDS;
+pthread_t threadForFlushData;
+int threadCount;
 /*End- Global variables*/
 
 
@@ -20,6 +23,7 @@ unordered_map<string,string > mirrorListDS;
 /*Begin- Function Declaration*/
 void pushRepositoryFileDS(string lineString);
 void pushMirrorListDS(string lineString);
+void flushDataToFile();
 /*End- Function Declaration*/
 
 
@@ -61,7 +65,8 @@ string performSearch(vector<string> requestParam){
 
 	searchParam = requestParam.at(1);
 	transform(searchParam.begin(), searchParam.end(), searchParam.begin(), ::tolower);
-	
+
+
 	if(repositoryFileDS.empty()){
 		
 		return "FILE_NOT_FOUND";
@@ -158,7 +163,7 @@ string performDelete(vector<string> requestParam){
 	searchParam = requestParam.at(1);
 	transform(searchParam.begin(), searchParam.end(), searchParam.begin(), ::tolower);
 
-	compareValue = requestParam.at(1) + requestParam.at(2) + requestParam.at(3);
+	compareValue = requestParam.at(1) +":"+ requestParam.at(2) + ":"+requestParam.at(3);
 
 	if(!repositoryFileDS.empty()){
 		iterRepoDS=repositoryFileDS.find(searchParam);
@@ -166,11 +171,19 @@ string performDelete(vector<string> requestParam){
 			repoFileDSVector = iterRepoDS->second;
 			for (vector<string>::iterator it = repoFileDSVector.begin() ; it != repoFileDSVector.end(); ++it){
     			temp = *it;
+    			cout << "compareValue1: " << temp << endl;
+    			cout << "compareValue2: " << compareValue << endl;
     			if(temp == compareValue){
+    				cout << "hi: " << temp << endl;
     				repoFileDSVector.erase (it);
+    				iterRepoDS->second = repoFileDSVector;
     				break;
+    			}else{
+    				return "FILE_NOT_FOUND";
     			}
     		}
+    	}else{
+    		return "FILE_NOT_FOUND";
     	}
     }
     return "SUCCESS";
@@ -188,6 +201,9 @@ void handleClientRequest(){
 	string clientMessage;
 	vector<string> requestParam;
 	string response;
+
+	clientSocketFileDesc= acceptClientConnection(); //Accept the connection
+
 	memset(clientMessageArray, '\0', 2000);
 	readSize = recv(clientSocketFileDesc , clientMessageArray , 2000 , 0);   	
     if(readSize == 0){
@@ -221,7 +237,7 @@ void handleClientRequest(){
     }
 
     close(clientSocketFileDesc);
-	exit(0);	
+	//exit(0);	//To-Do Uncomment
 }
 
 
@@ -229,7 +245,7 @@ void handleClientRequest(){
 void pushRepositoryFileDS(string lineString){
 	string key,value;
 	size_t found;
-	map<string,vector<string> >::iterator iter;
+	map<string,vector<string> >::iterator iter, iter1;
 	vector<string> repoFileDSVector;
 
 	found=lineString.find(":");
@@ -246,13 +262,14 @@ void pushRepositoryFileDS(string lineString){
 		if(iter != repositoryFileDS.end()){    			
 			repoFileDSVector = iter->second;
 			repoFileDSVector.push_back(value);
-			iter->second = repoFileDSVector;
+			repositoryFileDS[key]=repoFileDSVector;
 		}else{    			
 		    repoFileDSVector.push_back(value);
-		    repositoryFileDS[key]=repoFileDSVector;		    
+		    repositoryFileDS[key]=repoFileDSVector;
 		}
 
 	}
+
 }
 
 
@@ -329,6 +346,41 @@ void populateServerParam(int argc, char* argv[]){
 }
 
 
+void *flushDataToFileThread(void *threadid){
+	flushDataToFile();
+}
+
+
+/*This function is executed by a thread continuously to flush the data to file from DS*/
+void flushDataToFile(){
+	string data;
+	vector<string> repoFileDSVector;
+	while(1){
+		sleep(30);
+		ofstream ofsRepo ("repo.txt", std::ofstream::out);
+		for (map<string,vector<string> >::iterator it=repositoryFileDS.begin(); it!=repositoryFileDS.end(); ++it){
+			repoFileDSVector = it->second;
+			if(!repoFileDSVector.empty() && (!(it->first).empty())){
+				for (vector<string>::iterator iter = repoFileDSVector.begin() ; iter != repoFileDSVector.end(); ++iter){
+					
+					ofsRepo << *iter << endl; 				
+				}
+			}
+		}
+		ofsRepo.close();
+		ofstream ofsMirror ("list.txt", std::ofstream::out);
+		for (unordered_map<string,string >::iterator it=mirrorListDS.begin(); it!=mirrorListDS.end(); ++it){
+			if((!(it->first).empty()) && (!(it->second).empty())){			
+				data= it->first;
+				data =data +":" +(it->second);
+				ofsMirror << data << endl; 			
+			}
+		}
+		ofsMirror.close();
+	}
+	pthread_exit(NULL);
+}
+
 /*This function listens creates a Server socket
   For each incoming request, a seperate process is spawned*/
 int main(int argc, char* argv[]){	
@@ -336,6 +388,14 @@ int main(int argc, char* argv[]){
 	populateServerParam(argc, argv); //populate server parameter
 	populateRepositoryFileDS(); //populate Repository File DS
 	populateMirrorListDS(); //populate Repository File DS
+	atexit(flushDataToFile);
+
+	if(pthread_create(&threadForFlushData, NULL, flushDataToFileThread, NULL)) {
+
+		fprintf(stderr, "Error creating thread\n");
+		
+	}
+	threadCount=0;
 
 	createServerSocket(serverIP,serverPortNum); //Create Server socket and bind it to port num: 9734
 	suppressSIGCHILD(); //preventing the transformation of children into zombies
@@ -344,17 +404,20 @@ int main(int argc, char* argv[]){
 		
 		printf("server waiting\n");	
 
-		clientSocketFileDesc= acceptClientConnection(); //Accept the connection
+		//clientSocketFileDesc= acceptClientConnection(); //Accept the connection
 
-		if(fork() == 0) {
+		/*if(fork() == 0) {
 			handleClientRequest(); //ChildProcess - Client request handler
 
 		}else{
+			close(clientSocketFileDesc); //ParentProcess - Free ClientSocketFD
+		}*/
 
-			/*Begin- ParentProcess - Free ClientSocketFD*/
-			close(clientSocketFileDesc);
-			/*End- ParentProcess - Free ClientSocketFD*/
+		/*if(pthread_create(&threadForFlushData, NULL, handleClientRequest, NULL)) {
 
-		}
+			fprintf(stderr, "Error creating thread\n");
+		
+		}*/
+		handleClientRequest();
 	}
 }
