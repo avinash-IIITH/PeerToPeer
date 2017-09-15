@@ -16,7 +16,8 @@
 #include <fstream>
 #include <unordered_map>
 #include <algorithm>
-#include <functional> 
+#include <functional>
+#include <fcntl.h> 
 /* End -includes*/
 
 
