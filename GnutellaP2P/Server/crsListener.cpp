@@ -89,13 +89,13 @@ string performSearch(vector<string> requestParam){
 	}else{
 		lengthSearchParam = searchParam.length();
 		iter = repositoryFileDS.lower_bound(searchParam);
-		cout << "lower_bound: " << iter->first << endl;
+		
 		for (map<string,vector<string> >::iterator itRepositoryFileDS=iter; itRepositoryFileDS!=repositoryFileDS.end(); ++itRepositoryFileDS){
 
 			key = iter->first;
-			cout << "key: " << key << endl;
+			
 			substring = key.substr(0,lengthSearchParam);
-			cout << "substring: " << substring << endl;
+			
 			//iterRepoDS=repositoryFileDS.find(searchParam);
 		
 			if(searchParam == substring){  		
@@ -154,7 +154,7 @@ string performSearch(vector<string> requestParam){
 			}
 		}
 
-		cout << "searchResponse: " << searchResponse << endl;
+		
 		if(resultCount == 0 || searchResponse == fileName || searchResponse.empty()){
 			return "FILE_NOT_FOUND";
 		}else{
@@ -231,7 +231,7 @@ string performGet(vector<string> requestParam){
 			}		
 		}
 		searchString = searchString+"#@#"+requestParam.at(3);
-		cout << endl << "searchString: " << searchString << endl;
+		
 		return searchString;
 
     }else{

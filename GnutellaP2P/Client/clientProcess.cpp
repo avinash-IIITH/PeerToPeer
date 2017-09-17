@@ -98,17 +98,17 @@ void* getFileFromMirror(void *cstr){
 	
 	if(!indexStr.empty()){
 		index = stoi (indexStr,nullptr,10);
-		cout << "index: " << index << endl;
+		
 		it = fileMirrors.find(index);
 		if(it != fileMirrors.end()){
-			cout << "it->second: " << it->second << endl;
+			
 			requestParam = splitMessage(it->second);
 			filePath = requestParam.at(2);
-			cout << "filePath: " << filePath << endl;
+			
 			mirrorIPAddress = new char [requestParam.at(4).length()+1];
 			strcpy (mirrorIPAddress, requestParam.at(4).c_str());
 			portNum = (unsigned int)stoi(requestParam.at(6),nullptr,10);
-			cout << "portNum: " << portNum << " mirrorIPAddress: " << mirrorIPAddress << endl;
+			
 			recieveFileFD = connectServerSocket(portNum,mirrorIPAddress);
 
 			if(recieveFileFD == -1) {
@@ -310,8 +310,7 @@ void handleGetResponse(string serverReponse, string parsedInputString){
 
 	found=serverReponse.find("#@#");
 	serverReponse = serverReponse.substr(0,found) + "#@#" + serverReponse;
-	cout << "serverReponse: " << serverReponse << endl;
-	cout << "parsedInputString: " << parsedInputString << endl;
+	
 	fileMirrors[1] = serverReponse;
 
 	while(1){
