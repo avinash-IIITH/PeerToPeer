@@ -421,7 +421,7 @@ void *sendHeartBeat(void *threadid){
     strcpy (cstr, pingMessage.c_str());
     
     while(1){
-    	sleep(10);
+    	sleep(30);
 		pingThreadFD = connectServerSocket(serverPortNum,serverIPAddress);
 		if(pingThreadFD == -1) {
 			perror("SERVER_OFFLINE");
