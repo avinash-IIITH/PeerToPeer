@@ -1,6 +1,2 @@
-test test:195.165.2:59335:9715
+Avinash Kumar:127.0.0.1:8755:8884
 Avinash's Kumar:127.0.0.1:8754:8883
-avinash Kumar:197.165.2.5:9335:9715
-Bob's Laptop:192.168.2.4:9333:9722
-Eve's Laptop:191.168.2.5:9332:9711
-Pratyush's:10.1.134.4:8754:3423

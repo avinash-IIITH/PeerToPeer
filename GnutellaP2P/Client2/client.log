@@ -1,0 +1,14 @@
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- share#@#SampleVideo.mp4#@#SampleVideo.mp4#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message Sent Successful- share#@#SampleVideo.mp4#@#SampleVideo.mp4#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Server Response- SUCCESS
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: SampleVideo.mp4
+Thu Jan  1 05:30:00 1970: File transfer complete: SampleVideo.mp4
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- del#@#SampleVideo.mp4#@#SampleVideo.mp4#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message Sent Successful- del#@#SampleVideo.mp4#@#SampleVideo.mp4#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Server Response- SUCCESS

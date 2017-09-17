@@ -19,11 +19,23 @@ char * rootFolder;
 map<int, string> fileMirrors;
 int threadCount;
 pthread_t getFileThread[10000];
+ofstream ofs;
+time_t rawtime;
 /*End- Global variables*/
 
 
 
+/*This function is for logging Messages*/
+void logMessage(string message){	
+	char *c_time_string;
+	int len_of_new_line;
+	
+	c_time_string = ctime(&rawtime);
+    len_of_new_line = strlen(c_time_string) - 1;
+    c_time_string[len_of_new_line] = '\0';
 
+	ofs << c_time_string << ": " << message << endl; 
+}
 
 /*This function is to populate client parameter*/
 void populateClientParam(int argc, char* argv[]){
@@ -78,23 +90,22 @@ void* getFileFromMirror(void *cstr){
 	int incomingFileDescriptor;
 	char recievedData[256]; 
 
-	cout << parsedMessage << endl;
 	filename=parsedMessage.substr(parsedMessage.find("#@#")+3);
 	parsedMessage= parsedMessage.substr(parsedMessage.find("[")+1);
 	
-	indexStr =parsedMessage.substr(0,2);
-
+	//indexStr =parsedMessage.substr(0,2);
+	indexStr = parsedMessage.substr(0,parsedMessage.find("]"));
+	
 	if(!indexStr.empty()){
 		index = stoi (indexStr,nullptr,10);
 		it = fileMirrors.find(index);
 		if(it != fileMirrors.end()){
-			cout << it->second << endl;
+			
 			requestParam = splitMessage(it->second);
 			filePath = requestParam.at(0);
 			mirrorIPAddress = new char [requestParam.at(3).length()+1];
 			strcpy (mirrorIPAddress, requestParam.at(3).c_str());
 			portNum = (unsigned int)stoi(requestParam.at(5),nullptr,10);
-
 			recieveFileFD = connectServerSocket(portNum,mirrorIPAddress);
 
 			if(recieveFileFD == -1) {
@@ -103,13 +114,11 @@ void* getFileFromMirror(void *cstr){
 				pthread_exit(NULL);
 			}
 
-
-			cout << "recieveFileFD: " << recieveFileFD << endl;
 			char * cstr = new char [filePath.length()+1];
 		    strcpy (cstr, filePath.c_str());
 		    if( send(recieveFileFD , cstr , strlen(cstr) , 0) < 0){
 		        perror("send failed. Try again after sometime");
-		        cout << "mara lo " << endl;
+		        
 		    }			
 
 			char * cFileName = new char [filename.length()+1];
@@ -120,17 +129,26 @@ void* getFileFromMirror(void *cstr){
 			}
 
 			while ( (recievedBytes = recv(recieveFileFD, recievedData, 256, 0)) > 0 ){
-				if (write(incomingFileDescriptor, recievedData, recievedBytes) < 0 ){
-					perror("error writing to file");
+				
+				if(string(recievedData) != "FILE_NOT_FOUND"){
+					if (write(incomingFileDescriptor, recievedData, recievedBytes) < 0 ){
+						perror("error writing to file");
+					}
+				}else{
+					cout << "FILE_NOT_FOUND" <<  endl << endl;
+					pthread_exit(NULL);
 				}
 			}
 			close(incomingFileDescriptor); 
 
+			cout << "FILE DOWNLOAD SUCCESSFULL" << endl << endl;
+			cout << "Please enter command for CRS" << endl << endl;
+
 		}else{
-			cout << "Invalid Get Request" << endl;
+			cout << "Invalid Get Request" << endl << endl;
 		}
 	}else{
-		cout << "Invalid Get Request" << endl;
+		cout << "Invalid Get Request" << endl << endl;
 	}
 
 	threadCount--;
@@ -167,7 +185,10 @@ string updateCommandString(string parsedString){
 	    	found=parsedString.find("[");
 	    	if(found == string::npos){
 	    		//To Do get command to CRS
+	    		parsedString = key + "#@#" + parsedString;
+	    		return parsedString;
 	    	}else{
+	    		
 	    		char * cstr = new char [parsedString.length()+1];
     			strcpy (cstr, parsedString.c_str());
 	    		if(pthread_create(&getFileThread[threadCount++], NULL, getFileFromMirror, (void*)cstr) != 0) {
@@ -176,11 +197,12 @@ string updateCommandString(string parsedString){
 				return "continue";
 	    	}
 	    }else{
-	    	cout << "INVALID_ARGUEMENT";
+	    	cout << "INVALID_ARGUEMENT" << endl << endl;
 	    	return "INVALID_ARGUEMENT";
 	    }
 	}else{
-		cout << "INVALID_ARGUEMENT";
+		cout << "INVALID_ARGUEMENT" << endl << endl;
+		return "INVALID_ARGUEMENT";
 	}	
 }
 
@@ -199,7 +221,11 @@ string parseInputCommand(string inputCommand){
     		c = inputCommand.at(i);
     		parsedString = parsedString + c;
     	}else if(c == '\"'){
-    		flag = flag^flag;
+    		if(flag ==0){
+    			flag = 1;
+    		}else{
+    			flag = 0;
+    		}
     	}else{
 
 	    	if(c == ' ' && flag == 1){
@@ -247,7 +273,7 @@ void handleSearchResponse(string serverReponse, string parsedInputString){
 		}
 		responseCount++;		
 	}
-	cout << "FOUND:" <<fileMirrors.size() <<endl ;
+	cout << "FOUND:" <<fileMirrors.size() <<endl << endl;
 
 	for (map<int, string>::iterator it = fileMirrors.begin() ; it != fileMirrors.end(); ++it){
 		string mirrorDetail = it->second;
@@ -263,11 +289,44 @@ void handleSearchResponse(string serverReponse, string parsedInputString){
 			}
 		}
 		
-		found=replacedString.find(":");
-		replacedString=replacedString.substr(found+1);
+		//found=replacedString.find(":");
+		//replacedString=replacedString.substr(found+1);
 		
 		cout << "[" << it->first << "] " << replacedString << endl;
 	}
+}
+
+
+/*This function handles search response from server*/
+void handleGetResponse(string serverReponse, string parsedInputString){
+	vector<string> requestParam;
+	size_t found;
+	string key,fileName;
+
+	fileMirrors.clear();
+
+	fileMirrors[1] = serverReponse;
+
+	while(1){
+		found=serverReponse.find("#@#");
+		if (found != string::npos){
+			serverReponse = serverReponse.substr(found+3);
+		}else{
+			fileName = serverReponse;
+			break;
+		}
+
+	}
+
+	serverReponse = "[1]#@#"+fileName;
+
+	char * cstr = new char [serverReponse.length()+1];
+	strcpy (cstr, serverReponse.c_str());
+	if(pthread_create(&getFileThread[threadCount++], NULL, getFileFromMirror, (void*)cstr) != 0) {
+		fprintf(stderr, "Error creating thread\n");					
+	}
+	//return "continue";
+
 }
 
 
@@ -277,7 +336,11 @@ void handleServerResponse(string serverReponse, string parsedInputString){
 	string key;
 
 	if(serverReponse == "INVALID_REQUEST" ||serverReponse == "FILE_NOT_FOUND" ||serverReponse == "SUCCESS"){
-		cout << serverReponse << endl;
+		cout << serverReponse << endl << endl;
+		return;
+	}
+
+	if(serverReponse == "PING SUCCESS"){
 		return;
 	}
 
@@ -286,6 +349,8 @@ void handleServerResponse(string serverReponse, string parsedInputString){
 		key=parsedInputString.substr(0,found);
 		if(key == "search"){
 			handleSearchResponse(serverReponse, parsedInputString);
+		}else if(key == "get"){
+			handleGetResponse(serverReponse, parsedInputString);
 		}
 	}
 }
@@ -298,24 +363,25 @@ void *transferFile(void *threadid){
 	ssize_t sentBytes, readBytes;
 	char sendBuffer[256]; 
 
+	logMessage("creating server listening socket");
 	createServerSocket(nodeIPAddress,nodeDownloadPortNum); //Create Server socket and bind it to port num: 9734
-	cout << "Socket Ready: " << nodeIPAddress << ":" << nodeDownloadPortNum << endl;
+	
 	suppressSIGCHILD(); //preventing the transformation of children into zombies
 
 	while(1){
 		clientSocketFileDesc= acceptClientConnection(); //Accept the connection
-		cout << "Connection accept: " << clientSocketFileDesc << endl;
-
+		
 		memset(clientMessageArray, '\0', 2000);
-		readSize = recv(clientSocketFileDesc , clientMessageArray , 2000 , 0);   	
+		readSize = recv(clientSocketFileDesc , clientMessageArray , 2000 , 0); 
+		logMessage("Message Recieved: "+ string(clientMessageArray));  	
 	    if(readSize == 0){
 	        printf("Client disconnected");
 	        fflush(stdout);
 	    }else if(readSize == -1){
 	        perror("recv failed");
 	    }else{
-	    	//clientMessage = string(clientMessageArray);
-	    	cout << "File Download Request: " << clientMessageArray << endl;
+	    	//clientMessage = string(clientMessageArray);	    	
+	    	cout << "File Download Request: " << clientMessageArray << endl << endl;
 	    }
 
 		if( (outgoingFileDescriptor = open(clientMessageArray, O_RDONLY)) < 0){
@@ -329,11 +395,55 @@ void *transferFile(void *threadid){
 					perror("send error");
 				}
 			}
+			logMessage("File transfer complete: "+ string(clientMessageArray));  	
 			close(outgoingFileDescriptor);
 		} 
 
 	    close(clientSocketFileDesc);
 	}
+	pthread_exit(NULL);
+}
+
+/*This function performs at exit operations */
+void cleanOfstream(){
+	ofs.close();
+}
+
+
+/*This function sends heartbeat to the CRS at an interval of 5 min*/
+void *sendHeartBeat(void *threadid){
+	int pingThreadFD,readSize;
+	string pingMessage;
+	char pingResponseArray[200];
+	pingMessage = string("ping#@#")+ string(nodeAlias)+"#@#"+string(nodeIPAddress)+"#@#"+to_string(nodePortNum);
+	pingMessage=pingMessage+"#@#"+to_string(nodeDownloadPortNum);
+	char * cstr = new char [pingMessage.length()+1];
+    strcpy (cstr, pingMessage.c_str());
+    
+    while(1){
+    	sleep(10);
+		pingThreadFD = connectServerSocket(serverPortNum,serverIPAddress);
+		if(pingThreadFD == -1) {
+			perror("SERVER_OFFLINE");
+			continue;
+		}
+
+	    if( send(pingThreadFD , cstr , strlen(cstr) , 0) < 0){
+	        perror("send failed. Try again after sometime");
+	    }	
+		
+		memset(pingResponseArray, '\0', 200);
+		readSize = recv(pingThreadFD , pingResponseArray , 200 , 0);   
+
+	    if(readSize == 0){
+	        printf("server disconnected");
+	        fflush(stdout);
+	    }else if(readSize == -1){
+	        perror("recv failed");
+	    }
+		close(pingThreadFD);
+	}
+	pthread_exit(NULL);
 }
 
 
@@ -347,25 +457,34 @@ int main(int argc, char* argv[]){
 	char serverReponseArray[2000];
 	string serverReponse;
 	pthread_t threadForFileTransfer;
+	pthread_t threadForHeartBeat;
 	
 	populateClientParam(argc, argv); //populate server parameter
+
+	ofs.open("client.log", ofstream::out | ofstream::app);
 
 	if(pthread_create(&threadForFileTransfer, NULL, transferFile, NULL)) {
 
 		fprintf(stderr, "Error creating thread\n");
 		
 	}
+
+	if(pthread_create(&threadForHeartBeat, NULL, sendHeartBeat, NULL)) {
+
+		fprintf(stderr, "Error creating thread\n");		
+	}
 	
 	while(1){
-		cout << "Please enter command for CRS" << endl;
+		cout << "Please enter command for CRS" << endl << endl;
 		getline(cin, inputCommand);
 
 		parsedInputString = parseInputCommand(inputCommand);
 
-		if(parsedInputString == "Invalid Request" || parsedInputString == "continue"){
+		if(parsedInputString == "Invalid Request" || parsedInputString == "continue" || parsedInputString == "INVALID_ARGUEMENT"){
 			continue;
 		}
-
+		
+		logMessage("Connecting Server");
 		clientSocketFD = connectServerSocket(serverPortNum,serverIPAddress); //Initiate connnection to Server Socket
 
 		/*Begin- connection to server failed*/
@@ -378,15 +497,18 @@ int main(int argc, char* argv[]){
 
 		char * cstr = new char [parsedInputString.length()+1];
 	    strcpy (cstr, parsedInputString.c_str());
-	    cout << "Request Message: " << cstr <<endl;
+
+	    logMessage("Request Message- "+parsedInputString);
+
 	    if( send(clientSocketFD , cstr , strlen(cstr) , 0) < 0){
 	        perror("send failed. Try again after sometime");
 	    }		
-		
+		logMessage("Message Sent Successful- "+parsedInputString);
 		
 		memset(serverReponseArray, '\0', 2000);
 		readSize = recv(clientSocketFD , serverReponseArray , 2000 , 0);   
 
+	    logMessage("Server Response- "+string(serverReponseArray));
 	    if(readSize == 0){
 	        printf("server disconnected");
 	        fflush(stdout);
@@ -399,5 +521,7 @@ int main(int argc, char* argv[]){
 
 		close(clientSocketFD);
 	}
+
+	ofs.close();
 	exit(0);
 }

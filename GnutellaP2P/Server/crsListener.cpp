@@ -16,6 +16,9 @@ map<string,vector<string> > repositoryFileDS;
 unordered_map<string,string > mirrorListDS;
 pthread_t threadForFlushData;
 int threadCount;
+ofstream ofserver;
+time_t rawtime;
+unordered_map<string,time_t > liveMirrorListDS;
 /*End- Global variables*/
 
 
@@ -27,6 +30,17 @@ void flushDataToFile();
 /*End- Function Declaration*/
 
 
+/*This function is for logging Messages*/
+void logMessage(string message){
+	char *c_time_string;
+	int len_of_new_line;
+
+	c_time_string = ctime(&rawtime);
+    len_of_new_line = strlen(c_time_string) - 1;
+    c_time_string[len_of_new_line] = '\0';
+
+	ofserver << c_time_string << ": " << message << endl; 
+}
 
 /*This function a String based on Delimiters*/
 vector<string> splitMessage(string clientMessage){
@@ -147,6 +161,64 @@ string performShare(vector<string> requestParam){
 	return "SUCCESS";
 }
 
+/*This function searches for file in File repository*/
+string performGet(vector<string> requestParam){
+	string searchString,fileName;
+	size_t found;
+	map<string,vector<string> >::iterator iterRepoDS;
+	unordered_map<string,string >::iterator iterMirrorListDS;
+	vector<string> repoFileDSVector;
+	string temp,key;
+
+	if(requestParam.size() < 4){
+		return "INVALID_REQUEST";
+	}
+
+	found = requestParam.at(2).find_last_of('/');
+	if(found == string::npos){
+		fileName=requestParam.at(2);
+	}else{
+		fileName = requestParam.at(2).substr(found+1);
+	}
+
+	searchString =  fileName+":"+requestParam.at(2)+":"+requestParam.at(1);
+	temp = requestParam.at(1);
+
+	if(!repositoryFileDS.empty()){
+		iterRepoDS=repositoryFileDS.find(fileName);
+		if(iterRepoDS == repositoryFileDS.end()){
+    		return "FILE_NOT_FOUND";
+    	}
+
+		if((mirrorListDS.empty())||(mirrorListDS.find(temp) == mirrorListDS.end())){		
+		    return "FILE_NOT_FOUND";
+		}else{
+			iterMirrorListDS = mirrorListDS.find(temp);
+			temp = iterMirrorListDS->second;
+		}
+
+		searchString =  fileName+"#@#"+requestParam.at(2)+"#@#"+requestParam.at(1);
+
+		while(1){
+			found=temp.find(":");
+			if (found != string::npos){
+				searchString=searchString +"#@#"+ temp.substr(0,found);
+				temp=temp.substr(found+1);
+			}else{
+				searchString=searchString +"#@#"+ temp;
+				break;
+			}		
+		}
+		searchString = searchString+"#@#"+requestParam.at(3);
+		return searchString;
+
+    }else{
+    	return "FILE_NOT_FOUND";
+    }
+	
+	return "SUCCESS";
+}
+
 
 /*This function searches for file in File repository*/
 string performDelete(vector<string> requestParam){
@@ -171,11 +243,10 @@ string performDelete(vector<string> requestParam){
 			repoFileDSVector = iterRepoDS->second;
 			for (vector<string>::iterator it = repoFileDSVector.begin() ; it != repoFileDSVector.end(); ++it){
     			temp = *it;
-    			cout << "compareValue1: " << temp << endl;
-    			cout << "compareValue2: " << compareValue << endl;
+    			
     			if(temp == compareValue){
-    				cout << "hi: " << temp << endl;
-    				repoFileDSVector.erase (it);
+    				
+    				repoFileDSVector.erase(it);
     				iterRepoDS->second = repoFileDSVector;
     				break;
     			}else{
@@ -187,6 +258,34 @@ string performDelete(vector<string> requestParam){
     	}
     }
     return "SUCCESS";
+}
+
+/*This function updates the live nodes*/
+string performPing(vector<string> requestParam){
+	string mirrorAlias= requestParam.at(1);
+	time_t now;
+	unordered_map<string,time_t > ::iterator iter;
+	string pushIntoMirrorDS;
+
+	if(requestParam.size() < 5){
+		return "INVALID_REQUEST";
+	}
+
+	pushIntoMirrorDS= requestParam.at(1)+":"+requestParam.at(2)+":"+requestParam.at(3)+":"+requestParam.at(4);
+	pushMirrorListDS(pushIntoMirrorDS);
+	time(&now);
+	if(!liveMirrorListDS.empty()){
+		iter = liveMirrorListDS.find(mirrorAlias);
+		if(iter != liveMirrorListDS.end()){
+			iter->second = now;			
+		}else{
+			liveMirrorListDS[mirrorAlias] = now;
+			
+		}
+	}else{
+		liveMirrorListDS[mirrorAlias] = now;		
+	}
+	return "PING SUCCESS";
 }
 
 
@@ -202,10 +301,13 @@ void handleClientRequest(){
 	vector<string> requestParam;
 	string response;
 
+	logMessage("Waiting for client");
 	clientSocketFileDesc= acceptClientConnection(); //Accept the connection
 
 	memset(clientMessageArray, '\0', 2000);
-	readSize = recv(clientSocketFileDesc , clientMessageArray , 2000 , 0);   	
+	readSize = recv(clientSocketFileDesc , clientMessageArray , 2000 , 0);   
+
+	logMessage("Message Recieved: " + string(clientMessageArray));	
     if(readSize == 0){
         printf("Client disconnected");
         fflush(stdout);
@@ -223,6 +325,10 @@ void handleClientRequest(){
     	response = performShare(requestParam);
     }else if(requestParam.at(0) == "del"){
     	response = performDelete(requestParam);
+    }else if(requestParam.at(0) == "get"){
+    	response = performGet(requestParam);
+    }else if(requestParam.at(0) == "ping"){
+    	response = performPing(requestParam);
     }else{
     	cout << "Invalid request";
     	response = "INVALID_REQUEST";
@@ -230,6 +336,7 @@ void handleClientRequest(){
 
     char * cstr = new char [response.length()+1];
     strcpy (cstr, response.c_str());
+    logMessage("Message sent to Client: " + response);
     cout << "Response: " << cstr << endl;
     if( send(clientSocketFileDesc , cstr , strlen(cstr) , 0) < 0){
         perror("send failed");
@@ -293,6 +400,7 @@ void populateRepositoryFileDS(){
 
 /*This function pushes data in mirrorListDS map*/
 void pushMirrorListDS(string lineString){
+	cout << lineString << endl;
 	string key,value;
 	size_t found;
 	unordered_map<string,string>::iterator iter;
@@ -356,7 +464,7 @@ void flushDataToFile(){
 	string data;
 	vector<string> repoFileDSVector;
 	while(1){
-		sleep(30);
+		sleep(10);
 		ofstream ofsRepo ("repo.txt", std::ofstream::out);
 		for (map<string,vector<string> >::iterator it=repositoryFileDS.begin(); it!=repositoryFileDS.end(); ++it){
 			repoFileDSVector = it->second;
@@ -381,22 +489,81 @@ void flushDataToFile(){
 	pthread_exit(NULL);
 }
 
+
+/*This function is for detecting mirrors which are no more active */
+void *removeDeadMirrors(void *threadid){
+	time_t now,mirrorLastPing;
+	unordered_map<string,time_t > ::iterator iter;
+	string mirrorAlias;
+	size_t found;
+	double seconds;
+
+	while(1){
+		sleep(30);
+		if(!mirrorListDS.empty()){
+			for (unordered_map<string,string >::iterator it=mirrorListDS.begin(); it!=mirrorListDS.end(); ++it){				
+				if((!(it->first).empty()) && (!(it->second).empty())){
+							
+					mirrorAlias= it->first;
+					
+					if(!liveMirrorListDS.empty()){
+						
+						iter = liveMirrorListDS.find(mirrorAlias);
+						
+						if(iter != liveMirrorListDS.end()){
+							
+							mirrorLastPing =  iter->second;
+							
+							time(&now);
+							
+							if(difftime(now,mirrorLastPing) > 20){
+								mirrorListDS.erase(it);
+								liveMirrorListDS.erase(iter);
+								
+							}
+						}else{
+							
+							mirrorListDS.erase(it);
+							
+						}
+					}else{
+						mirrorListDS.erase(it);
+						
+					}					
+				}
+			}
+		}
+	}
+}
+
 /*This function listens creates a Server socket
   For each incoming request, a seperate process is spawned*/
 int main(int argc, char* argv[]){	
+
+	pthread_t threadForDetectingLiveMirror;
 
 	populateServerParam(argc, argv); //populate server parameter
 	populateRepositoryFileDS(); //populate Repository File DS
 	populateMirrorListDS(); //populate Repository File DS
 	atexit(flushDataToFile);
 
+	ofserver.open("crs.log", ofstream::out | ofstream::app);
+
 	if(pthread_create(&threadForFlushData, NULL, flushDataToFileThread, NULL)) {
 
 		fprintf(stderr, "Error creating thread\n");
 		
 	}
+
+	if(pthread_create(&threadForDetectingLiveMirror, NULL, removeDeadMirrors, NULL)) {
+
+		fprintf(stderr, "Error creating thread\n");		
+	}
+
+
 	threadCount=0;
 
+	logMessage("Creating server socket");
 	createServerSocket(serverIP,serverPortNum); //Create Server socket and bind it to port num: 9734
 	suppressSIGCHILD(); //preventing the transformation of children into zombies
 
@@ -420,4 +587,5 @@ int main(int argc, char* argv[]){
 		}*/
 		handleClientRequest();
 	}
+	ofserver.close();
 }

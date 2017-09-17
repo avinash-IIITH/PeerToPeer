@@ -18,7 +18,8 @@
 #include <algorithm>
 #include <functional> 
 #include <chrono> 
-#include <fstream> 
+#include <fstream>
+#include <time.h> 
 /* End -includes*/
 
 
