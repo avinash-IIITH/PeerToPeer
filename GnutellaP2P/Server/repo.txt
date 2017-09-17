@@ -1,2 +1,5 @@
-Japan Tour.jpg:pictures/japan/Japan Tour.jpg:Avinash's Kumar
+japa.txt:japa/japa.txt:Avinash Kumar
 Japan Tour.jpg:pictures/japan/Japan Tour.jpg:Avinash Kumar
+Japan.jpg:pictures/japan/Japan.jpg.jpg:Avinash's Kumar
+japan.jpg:pictures/japan/japan.jpg:Avinash's Kumar
+japann.txt:japann.txt:Avinash Kumar

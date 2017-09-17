@@ -98,14 +98,17 @@ void* getFileFromMirror(void *cstr){
 	
 	if(!indexStr.empty()){
 		index = stoi (indexStr,nullptr,10);
+		cout << "index: " << index << endl;
 		it = fileMirrors.find(index);
 		if(it != fileMirrors.end()){
-			
+			cout << "it->second: " << it->second << endl;
 			requestParam = splitMessage(it->second);
-			filePath = requestParam.at(0);
-			mirrorIPAddress = new char [requestParam.at(3).length()+1];
-			strcpy (mirrorIPAddress, requestParam.at(3).c_str());
-			portNum = (unsigned int)stoi(requestParam.at(5),nullptr,10);
+			filePath = requestParam.at(2);
+			cout << "filePath: " << filePath << endl;
+			mirrorIPAddress = new char [requestParam.at(4).length()+1];
+			strcpy (mirrorIPAddress, requestParam.at(4).c_str());
+			portNum = (unsigned int)stoi(requestParam.at(6),nullptr,10);
+			cout << "portNum: " << portNum << " mirrorIPAddress: " << mirrorIPAddress << endl;
 			recieveFileFD = connectServerSocket(portNum,mirrorIPAddress);
 
 			if(recieveFileFD == -1) {
@@ -142,6 +145,7 @@ void* getFileFromMirror(void *cstr){
 			close(incomingFileDescriptor); 
 
 			cout << "FILE DOWNLOAD SUCCESSFULL" << endl << endl;
+			cout << "Please enter command for CRS" << endl << endl;
 
 		}else{
 			cout << "Invalid Get Request" << endl << endl;
@@ -250,23 +254,23 @@ void handleSearchResponse(string serverReponse, string parsedInputString){
 
 	fileMirrors.clear();
 	while(1){
-		if(responseCount ==1 ){
+		//if(responseCount ==1 ){
 			found=serverReponse.find("#@#");
 			fileName = serverReponse.substr(0,found);
-		}
+		//}
 
 		found=serverReponse.find("||");
 		if (found != string::npos){
 			key=serverReponse.substr(0,found);
-			if(responseCount !=1){
+			//if(responseCount !=1){
 				key = fileName+"#@#"+key;
-			}
+			//}
 			fileMirrors[responseCount]=key;
 			serverReponse=serverReponse.substr(found+2);
 		}else{
-			if(responseCount !=1){
+			//if(responseCount !=1){
 				serverReponse = fileName+"#@#"+serverReponse;
-			}
+			//}
 			fileMirrors[responseCount]=serverReponse;
 			break;
 		}
@@ -288,8 +292,8 @@ void handleSearchResponse(string serverReponse, string parsedInputString){
 			}
 		}
 		
-		//found=replacedString.find(":");
-		//replacedString=replacedString.substr(found+1);
+		found=replacedString.find(":");
+		replacedString=replacedString.substr(found+1);
 		
 		cout << "[" << it->first << "] " << replacedString << endl;
 	}
@@ -304,6 +308,10 @@ void handleGetResponse(string serverReponse, string parsedInputString){
 
 	fileMirrors.clear();
 
+	found=serverReponse.find("#@#");
+	serverReponse = serverReponse.substr(0,found) + "#@#" + serverReponse;
+	cout << "serverReponse: " << serverReponse << endl;
+	cout << "parsedInputString: " << parsedInputString << endl;
 	fileMirrors[1] = serverReponse;
 
 	while(1){
@@ -420,7 +428,7 @@ void *sendHeartBeat(void *threadid){
     strcpy (cstr, pingMessage.c_str());
     
     while(1){
-    	sleep(10);
+    	sleep(30);
 		pingThreadFD = connectServerSocket(serverPortNum,serverIPAddress);
 		if(pingThreadFD == -1) {
 			perror("SERVER_OFFLINE");

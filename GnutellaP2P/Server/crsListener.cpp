@@ -69,76 +69,97 @@ string performSearch(vector<string> requestParam){
 	if(requestParam.size() < 2){
 		return "INVALID_REQUEST";
 	}
-	string searchParam,fileName;
+
+	string searchParam,fileName;	
 	map<string,vector<string> >::iterator iterRepoDS;
 	unordered_map<string,string >::iterator iterMirrorListDS;
 	vector<string> repoFileDSVector;
-	string searchResponse, temp, alias, value;
-	size_t found;
-	int flag =0;
+	string searchResponse, temp, alias, value,substring, key;
+	size_t found,lengthSearchParam;
+	int resultCount, flag =0;
+	map<string,vector<string> >::iterator iter;
 
 	searchParam = requestParam.at(1);
 	transform(searchParam.begin(), searchParam.end(), searchParam.begin(), ::tolower);
-
+	resultCount=0;
 
 	if(repositoryFileDS.empty()){
 		
 		return "FILE_NOT_FOUND";
 	}else{
-		iterRepoDS=repositoryFileDS.find(searchParam);
+		lengthSearchParam = searchParam.length();
+		iter = repositoryFileDS.lower_bound(searchParam);
+		cout << "lower_bound: " << iter->first << endl;
+		for (map<string,vector<string> >::iterator itRepositoryFileDS=iter; itRepositoryFileDS!=repositoryFileDS.end(); ++itRepositoryFileDS){
+
+			key = iter->first;
+			cout << "key: " << key << endl;
+			substring = key.substr(0,lengthSearchParam);
+			cout << "substring: " << substring << endl;
+			//iterRepoDS=repositoryFileDS.find(searchParam);
 		
-		if(iterRepoDS != repositoryFileDS.end()){  		
+			if(searchParam == substring){  		
+							
+				repoFileDSVector = itRepositoryFileDS->second;
+				for (vector<string>::iterator it = repoFileDSVector.begin() ; it != repoFileDSVector.end(); ++it){
+					
+	    			temp = *it;
+	    			found = temp.find_last_of(':'); // to find alias
+	    			alias = temp.substr(found+1); // to find alias
+	    			
+	    			iterMirrorListDS=mirrorListDS.find(alias); //to find alias in mirrorListDS
+	    			
+	    			if(iterMirrorListDS != mirrorListDS.end()){  //if found
+	    				
+						resultCount++;
+						found=temp.find(":"); //end of filename
+						value=temp.substr(found+1); //from filepath till alias
+
+						if(!searchResponse.empty()){
+							searchResponse = searchResponse+"||";
+							flag =1;
+						}
+
+						/*if(searchResponse.empty()){
+							searchResponse=temp.substr(0,found); // put filename in output string
+							fileName =  searchResponse; // hold filename for empty comparison
+						}	*/			
+						fileName=temp.substr(0,found); 
+						if(flag ==1){
+							
+							searchResponse = searchResponse+fileName+"#@#"+value;
+						}else{
+							searchResponse = fileName+"#@#"+value;
+						}
 						
-			repoFileDSVector = iterRepoDS->second;
-			for (vector<string>::iterator it = repoFileDSVector.begin() ; it != repoFileDSVector.end(); ++it){
-				
-    			temp = *it;
-    			found = temp.find_last_of(':'); // to find alias
-    			alias = temp.substr(found+1); // to find alias
-    			
-    			iterMirrorListDS=mirrorListDS.find(alias); //to find alias in mirrorListDS
-    			
-    			if(iterMirrorListDS != mirrorListDS.end()){  //if found
-    				
-					found=temp.find(":"); //end of filename
-					value=temp.substr(found+1); //from filepath till alias
-
-					if(!searchResponse.empty()){
-						searchResponse = searchResponse+"||";
-						flag =1;
+						found = searchResponse.find_last_of(':');
+	    				searchResponse = searchResponse.substr(0,found)+"#@#"+alias+"#@#"; 
+						value = iterMirrorListDS->second;
+						found = value.find(':');
+	    				searchResponse = searchResponse+value.substr(0,found)+"#@#";
+	    				value = value.substr(found+1);
+	    				found = value.find(':');
+	    				searchResponse = searchResponse+value.substr(0,found)+"#@#"+value.substr(found+1);
 					}
-
-					if(searchResponse.empty()){
-						searchResponse=temp.substr(0,found); // put filename in output string
-						fileName =  searchResponse; // hold filename for empty comparison
-					}				
-					
-					if(flag ==1){
-						searchResponse = searchResponse+value;
-					}else{
-						searchResponse = searchResponse+"#@#"+value;
-					}
-					
-					found = searchResponse.find_last_of(':');
-    				searchResponse = searchResponse.substr(0,found)+"#@#"+alias+"#@#"; 
-					value = iterMirrorListDS->second;
-					found = value.find(':');
-    				searchResponse = searchResponse+value.substr(0,found)+"#@#";
-    				value = value.substr(found+1);
-    				found = value.find(':');
-    				searchResponse = searchResponse+value.substr(0,found)+"#@#"+value.substr(found+1);
 				}
-			}
 
-			if(searchResponse == fileName || searchResponse.empty()){
-				 return "FILE_NOT_FOUND";	
-			}else{
-				return searchResponse;	
-			}							
-		}else{  
-			 			
-		    return "FILE_NOT_FOUND";		    
+				/*if(searchResponse == fileName || searchResponse.empty()){
+					 return "FILE_NOT_FOUND";	
+				}else{
+					return searchResponse;	
+				}*/							
+			}else{ 
+				
+				break;		    		    
+			}
 		}
+
+		cout << "searchResponse: " << searchResponse << endl;
+		if(resultCount == 0 || searchResponse == fileName || searchResponse.empty()){
+			return "FILE_NOT_FOUND";
+		}else{
+			return searchResponse;
+		}		
 	}
 }
 
@@ -210,6 +231,7 @@ string performGet(vector<string> requestParam){
 			}		
 		}
 		searchString = searchString+"#@#"+requestParam.at(3);
+		cout << endl << "searchString: " << searchString << endl;
 		return searchString;
 
     }else{
@@ -400,7 +422,7 @@ void populateRepositoryFileDS(){
 
 /*This function pushes data in mirrorListDS map*/
 void pushMirrorListDS(string lineString){
-	cout << lineString << endl;
+	
 	string key,value;
 	size_t found;
 	unordered_map<string,string>::iterator iter;
@@ -464,7 +486,7 @@ void flushDataToFile(){
 	string data;
 	vector<string> repoFileDSVector;
 	while(1){
-		sleep(10);
+		sleep(50);
 		ofstream ofsRepo ("repo.txt", std::ofstream::out);
 		for (map<string,vector<string> >::iterator it=repositoryFileDS.begin(); it!=repositoryFileDS.end(); ++it){
 			repoFileDSVector = it->second;
@@ -499,7 +521,7 @@ void *removeDeadMirrors(void *threadid){
 	double seconds;
 
 	while(1){
-		sleep(30);
+		sleep(130);
 		if(!mirrorListDS.empty()){
 			for (unordered_map<string,string >::iterator it=mirrorListDS.begin(); it!=mirrorListDS.end(); ++it){				
 				if((!(it->first).empty()) && (!(it->second).empty())){

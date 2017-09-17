@@ -12,3 +12,59 @@ Thu Jan  1 05:30:00 1970: Connecting Server
 Thu Jan  1 05:30:00 1970: Request Message- del#@#SampleVideo.mp4#@#SampleVideo.mp4#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
 Thu Jan  1 05:30:00 1970: Message Sent Successful- del#@#SampleVideo.mp4#@#SampleVideo.mp4#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
 Thu Jan  1 05:30:00 1970: Server Response- SUCCESS
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: japa.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- search#@#japa
+Thu Jan  1 05:30:00 1970: Message Sent Successful- search#@#japa
+Thu Jan  1 05:30:00 1970: Server Response- japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: japa.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- search#@#japa
+Thu Jan  1 05:30:00 1970: Message Sent Successful- search#@#japa
+Thu Jan  1 05:30:00 1970: Server Response- japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message Recieved: japa.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- search#@#japa
+Thu Jan  1 05:30:00 1970: Message Sent Successful- search#@#japa
+Thu Jan  1 05:30:00 1970: Server Response- japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message Recieved: japann.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japann.txt
+Thu Jan  1 05:30:00 1970: Message Recieved: japa.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: japa/japa.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japa/japa.txt
+Thu Jan  1 05:30:00 1970: Message Recieved: japann.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japann.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: japann.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japann.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: japann.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japann.txt
+Thu Jan  1 05:30:00 1970: creating server listening socket
+Thu Jan  1 05:30:00 1970: Message Recieved: japann.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japann.txt
+Thu Jan  1 05:30:00 1970: Message Recieved: japann.txt
+Thu Jan  1 05:30:00 1970: File transfer complete: japann.txt
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- del#@#japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message Sent Successful- del#@#japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Server Response- SUCCESS
+Thu Jan  1 05:30:00 1970: Connecting Server
+Thu Jan  1 05:30:00 1970: Request Message- share#@#japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message Sent Successful- share#@#japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Server Response- SUCCESS

@@ -351,3 +351,598 @@ Thu Jan  1 05:30:00 1970: Waiting for client
 Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
 Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
 Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japan
+Thu Jan  1 05:30:00 1970: Message sent to Client: FILE_NOT_FOUND
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japan
+Thu Jan  1 05:30:00 1970: Message sent to Client: Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||pictures/japan/Japan Tour.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||pictures/japan/Japan Tour.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: #@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#sample
+Thu Jan  1 05:30:00 1970: Message sent to Client: FILE_NOT_FOUND
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#get#@#[1]#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: FILE_NOT_FOUND
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: get#@#Avinash's Kumar#@#japa/japa.txt#@#billy.txt
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883#@#billy.txt
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: get#@#Avinash Kumar#@#japann.txt#@#xybv.txt
+Thu Jan  1 05:30:00 1970: Message sent to Client: japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884#@#xybv.txt
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Creating server socket
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: get#@#Avinash Kumar#@#japann.txt#@#bil.txt
+Thu Jan  1 05:30:00 1970: Message sent to Client: japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884#@#bil.txt
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: del#@#japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: share#@#japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: search#@#japa
+Thu Jan  1 05:30:00 1970: Message sent to Client: japa.txt#@#japa/japa.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan Tour.jpg#@#pictures/japan/Japan Tour.jpg#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884||Japan.jpg#@#pictures/japan/Japan.jpg.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japan.jpg#@#pictures/japan/japan.jpg#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883||japann.txt#@#japann.txt#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash's Kumar#@#127.0.0.1#@#8754#@#8883
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
+Thu Jan  1 05:30:00 1970: Message Recieved: ping#@#Avinash Kumar#@#127.0.0.1#@#8755#@#8884
+Thu Jan  1 05:30:00 1970: Message sent to Client: PING SUCCESS
+Thu Jan  1 05:30:00 1970: Waiting for client
